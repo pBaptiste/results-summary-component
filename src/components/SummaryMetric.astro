@@ -1,0 +1,14 @@
+---
+    import { Image } from "astro:assets";
+    const { icon, name, score, customStyles } = Astro.props
+---
+<div class={`${customStyles} bg-opacity-[5%] flex justify-between items-center w-full h-[56px] px-4 rounded-xl`}>
+    <div class="flex items-center gap-3">
+        <Image src={icon} alt={name + ' icon'} width={20} height={20}/>
+        <p class="text-base md:text-lg font-medium">{name}</p>
+    </div>
+    <div class="flex gap-2 text-dark-navy text-base md:text-lg font-bold">
+        <p>{score}</p>
+        <p class="opacity-50">/100</p>
+    </div>
+</div>

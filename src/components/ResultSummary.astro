@@ -1,0 +1,70 @@
+---
+    import SummaryMetric from "./SummaryMetric.astro";
+    import reaction from '../images/icon-reaction.svg'
+    import memory from '../images/icon-memory.svg'
+    import verbal from '../images/icon-verbal.svg'
+    import visual from '../images/icon-visual.svg'
+
+    const metrics = [
+        {
+            icon: reaction,
+            name : 'Reaction',
+            score: '80',
+            customStyles: 'bg-red bg-opacity-[5%] text-red'
+        },
+        {
+            icon: memory,
+            name : 'Memory',
+            score: '92',
+            customStyles: 'bg-yellow text-yellow'
+        },
+        {
+            icon: verbal,
+            name : 'Memory',
+            score: '61',
+            customStyles: 'bg-green text-green'
+        },
+        {
+            icon: visual,
+            name : 'Visual',
+            score: '73',
+            customStyles: 'bg-blue text-blue'
+        },
+    ]
+---
+
+<article class="flex flex-col md:flex-row md:w-[736px] md:h-[512px] shadow-card-shadow md:rounded-[32px] bg-white">
+    <div class="w-full md:w-[368px] bg-background-2 pt-6 md:pt-[38px] pb-10 md:pb-[55px] flex flex-col items-center rounded-b-[32px] md:rounded-t-[32px] md:flex-none">
+        <h2 class="text-lg md:text-2xl text-light-blue font-bold mb-6 md:mb-[35px]">Your Result</h2>
+        <div class="rounded-full w-[140px] md:w-[200px] h-[140px] md:h-[200px] bg-background-3 flex flex-col items-center justify-center mb-6 md:mb-7">
+            <p class="text-white text-[3.5rem] md:text-7xl font-extrabold leading-[4.5rem]">76</p>
+            <p class="text-light-blue text-base md:text-lg font-bold text-opacity-[51.68%]">of 100</p>
+        </div>
+        <div>
+            <h1 class="text-white text-2xl md:text-[2rem] font-bold text-center mb-2 md:mb-[14px]">Great</h1>
+            <p class="text-light-blue text-base md:text-lg font-medium text-center max-w-[260px]">Your performance exceed 65% of the people conducting the test here!</p>
+        </div>
+    </div>
+
+    <div class="pt-6 md:pt-[38px] pb-[30px] md:pb-[46px] px-[30px] md:px-10 flex flex-col md:rounded-r-[32px] w-full">
+        <h2 class="text-navy-blue text-lg md:text-2xl font-bold mb-6 md:mb-7">Summary</h2>
+        <div class="flex flex-col gap-4 mb-6 md:mb-[41px]">
+        {
+            metrics.map(item => (
+                <SummaryMetric 
+                icon={item.icon}
+                name={item.name} 
+                score={item.score} 
+                customStyles={item.customStyles}/>
+            ))
+        }
+        </div>
+        <button class="pt-[17px] pb-4 w-full rounded-[128px] bg-dark-navy text-white text-lg font-bold hover:bg-background-2">Continue</button>
+    </div>
+</article>
+
+<style>
+    .gradient {
+        background: linear-gradient(180deg, #75F 0%, #6943FF 0.01%, #2F2CE9 100%);
+    }
+</style>
